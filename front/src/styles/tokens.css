@@ -1,0 +1,112 @@
+:root {
+  --color-primary: #F7ECE1;
+  --color-secondary: #242038;
+  --color-hover-secondary: #E8D9C4;
+  --color-accent: #725AC1;
+  --color-accent-dark: #5b4699;
+
+  --color-error: #b3261e;
+  --color-error-hover: #8f1d17;
+  --color-error-text: #F7ECE1;
+
+  --color-text: #242038;
+  --color-text-input: #000;
+  --color-text-muted: #5b4699;
+  --color-text-error: #b3261e;
+  --color-bg: #F7ECE1;
+  --color-bg--widget: #242038;
+  --color-bg-elevated: #EBE1CF;
+  --color-border: #8D86C9;
+  --color-focus-ring: #8D86C9;
+
+  --color-widget-text-muted: #b8b0e0;
+  --color-widget-text-error: #ff8a80;
+  --color-widget-info: #4da6ff;
+
+  --page-background: url("../assets/wallpaper_light.jpg");
+
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+  --space-7: 3rem;
+  --space-8: 4rem;
+
+  --font-size-sm: 0.875rem;
+  --font-size-base: 1rem;
+  --font-size-lg: 1.125rem;
+  --font-size-xl: 1.375rem;
+  --font-size-2xl: 1.75rem;
+  --font-size-3xl: 2.25rem;
+  --line-height-base: 1.5;
+
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --focus-ring: 0 0 0 3px rgba(30, 74, 114, 0.45);
+  --max-width: 1200px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-primary: #242038;
+    --color-secondary: #F7ECE1;
+    --color-hover-secondary: #f7ece11a;
+
+    --color-text: #F7ECE1;
+    --color-text-input: #F7ECE1;
+    --color-text-muted: #b8b0e0;
+    --color-text-error: #ff8a80;
+    --color-bg: #242038;
+    --color-bg--widget: #F7ECE1;
+    --color-bg-elevated: #302b4a;
+
+    --color-widget-text-muted: #5b4699;
+    --color-widget-text-error: #b3261e;
+    --color-widget-info: #1f5fa8;
+
+    --page-background: url("../assets/wallpaper_dark.jpg");
+  }
+}
+
+:root[data-theme="dark"] {
+  --color-primary: #242038;
+  --color-secondary: #F7ECE1;
+  --color-hover-secondary: #f7ece11a;
+
+  --color-text: #F7ECE1;
+  --color-text-input: #F7ECE1;
+  --color-text-muted: #b8b0e0;
+  --color-text-error: #ff8a80;
+  --color-bg: #242038;
+  --color-bg--widget: #F7ECE1;
+  --color-bg-elevated: #302b4a;
+
+  --color-widget-text-muted: #5b4699;
+  --color-widget-text-error: #b3261e;
+  --color-widget-info: #1f5fa8;
+
+  --page-background: url("../assets/wallpaper_dark.jpg");
+}
+
+:root[data-theme="light"] {
+  --color-primary: #F7ECE1;
+  --color-secondary: #242038;
+  --color-hover-secondary: #E8D9C4;
+
+  --color-text: #242038;
+  --color-text-input: #000;
+  --color-text-muted: #5b4699;
+  --color-text-error: #b3261e;
+  --color-bg: #F7ECE1;
+  --color-bg--widget: #242038;
+  --color-bg-elevated: #EBE1CF;
+
+  --color-widget-text-muted: #b8b0e0;
+  --color-widget-text-error: #ff8a80;
+  --color-widget-info: #4da6ff;
+
+  --page-background: url("../assets/wallpaper_light.jpg");
+}

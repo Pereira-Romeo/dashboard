@@ -1,0 +1,177 @@
+.pressure-widget,
+.pressure-widget-state {
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  box-sizing: border-box;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  gap: var(--space-2);
+  padding: var(--space-3);
+
+  text-align: center;
+  overflow: hidden;
+
+  background: var(--color-bg--widget);
+  color: var(--color-primary);
+
+  border: 1px solid var(--color-border);
+
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.pressure-widget {
+  container-type: inline-size;
+}
+
+.pressure-location-form {
+  width: 100%;
+  flex-shrink: 0;
+}
+
+.pressure-location-input {
+  width: 100%;
+  box-sizing: border-box;
+
+  padding: var(--space-2) var(--space-3);
+
+  font: inherit;
+  font-size: var(--font-size-sm);
+
+  color: var(--color-text-input);
+  background: var(--color-primary);
+
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+
+  outline: none;
+}
+
+.pressure-location-input:focus {
+  border-color: var(--color-focus-ring);
+  box-shadow: var(--focus-ring);
+}
+
+.pressure-main {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+
+  gap: var(--space-1);
+}
+
+.pressure-value {
+  font-size: clamp(1.5rem, 20cqw, 3.5rem);
+  font-weight: 700;
+  line-height: 1;
+
+  color: var(--color-primary);
+  white-space: nowrap;
+}
+
+.pressure-unit {
+  font-size: clamp(0.8rem, 8cqw, 1.2rem);
+  line-height: 1;
+
+  color: var(--color-primary);
+  opacity: 0.7;
+
+  white-space: nowrap;
+}
+
+.pressure-label {
+  font-size: clamp(
+    0.7rem,
+    7cqw,
+    var(--font-size-base)
+  );
+
+  line-height: var(--line-height-base);
+
+  color: var(--color-primary);
+  opacity: 0.75;
+
+  white-space: nowrap;
+}
+
+.pressure-details {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  gap: var(--space-1);
+
+  font-size: clamp(
+    0.65rem,
+    6cqw,
+    0.85rem
+  );
+
+  line-height: var(--line-height-base);
+
+  color: var(--color-primary);
+  opacity: 0.65;
+
+  text-align: center;
+}
+
+.pressure-widget-state {
+  font-size: var(--font-size-sm);
+  line-height: var(--line-height-base);
+
+  color: var(--color-primary);
+}
+
+.pressure-widget-state.error {
+  color: var(--color-error);
+  opacity: 1;
+}
+
+@container (max-width: 180px) {
+  .pressure-widget,
+  .pressure-widget-state {
+    gap: var(--space-1);
+    padding: var(--space-2);
+  }
+
+  .pressure-location-input {
+    padding: var(--space-1) var(--space-2);
+    font-size: 0.7rem;
+  }
+
+  .pressure-main {
+    gap: 2px;
+  }
+
+  .pressure-details {
+    gap: 0;
+  }
+}
+
+@container (min-width: 400px) {
+  .pressure-widget {
+    gap: var(--space-3);
+    padding: var(--space-5);
+  }
+
+  .pressure-location-input {
+    font-size: var(--font-size-base);
+  }
+
+  .pressure-details {
+    gap: var(--space-1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pressure-widget,
+  .pressure-widget-state {
+    transition: none;
+  }
+}

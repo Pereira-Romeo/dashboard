@@ -1,0 +1,157 @@
+.visibility-widget,
+.visibility-widget-state {
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  box-sizing: border-box;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  gap: var(--space-2);
+  padding: var(--space-3);
+
+  text-align: center;
+  overflow: hidden;
+
+  background: var(--color-bg--widget);
+  color: var(--color-primary);
+
+  border: 1px solid var(--color-border);
+
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.visibility-widget {
+  container-type: inline-size;
+}
+
+.visibility-main {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+
+  gap: var(--space-1);
+}
+
+.visibility-value {
+  font-size: clamp(1.5rem, 22cqw, 4rem);
+  font-weight: 700;
+  line-height: 1;
+
+  color: var(--color-primary);
+
+  white-space: nowrap;
+}
+
+.visibility-unit {
+  font-size: clamp(0.8rem, 8cqw, 1.2rem);
+  line-height: 1;
+
+  color: var(--color-primary);
+  opacity: 0.7;
+
+  white-space: nowrap;
+}
+
+.visibility-label {
+  font-size: clamp(
+    0.7rem,
+    7cqw,
+    var(--font-size-base)
+  );
+
+  line-height: var(--line-height-base);
+
+  color: var(--color-primary);
+  opacity: 0.75;
+
+  white-space: nowrap;
+}
+
+.visibility-quality {
+  font-size: clamp(
+    0.65rem,
+    6cqw,
+    0.85rem
+  );
+
+  line-height: var(--line-height-base);
+
+  color: var(--color-primary);
+  opacity: 0.65;
+
+  text-align: center;
+}
+
+.visibility-bar {
+  width: min(80%, 220px);
+  height: clamp(5px, 1.5cqw, 8px);
+
+  background: var(--color-bg-elevated);
+  border: 1px solid var(--color-border);
+
+  overflow: hidden;
+}
+
+.visibility-bar-fill {
+  width: 0;
+  height: 100%;
+
+  background: var(--color-accent);
+
+  transition: width 0.4s ease;
+}
+
+.visibility-widget-state {
+  font-size: var(--font-size-sm);
+  line-height: var(--line-height-base);
+
+  color: var(--color-primary);
+}
+
+.visibility-widget-state.error {
+  color: var(--color-error);
+  opacity: 1;
+}
+
+@container (max-width: 180px) {
+  .visibility-widget,
+  .visibility-widget-state {
+    gap: var(--space-1);
+    padding: var(--space-2);
+  }
+
+  .visibility-main {
+    gap: 2px;
+  }
+
+  .visibility-bar {
+    width: 75%;
+    height: 5px;
+  }
+}
+
+@container (min-width: 400px) {
+  .visibility-widget {
+    gap: var(--space-3);
+    padding: var(--space-5);
+  }
+
+  .visibility-bar {
+    height: 8px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .visibility-widget,
+  .visibility-widget-state,
+  .visibility-bar-fill {
+    transition: none;
+  }
+}

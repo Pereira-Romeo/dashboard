@@ -1,0 +1,222 @@
+.steam-widget {
+  container-type: inline-size;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+  background: var(--color-bg--widget);
+  color: var(--color-primary);
+  scrollbar-color: var(--color-accent) transparent;
+  scrollbar-width: thin;
+}
+
+.steam-widget::-webkit-scrollbar {
+  width: 8px;
+}
+
+.steam-widget::-webkit-scrollbar-thumb {
+  border-radius: var(--radius-sm);
+  background: var(--color-accent);
+}
+
+.steam-widget::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.steam-toolbar {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-2);
+  border-bottom: 1px solid var(--color-border);
+  background: var(--color-bg--widget);
+}
+
+.steam-toolbar .widget-select {
+  flex: 1 1 110px;
+}
+
+.steam-lib__list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(clamp(90px, 22cqw, 160px), 1fr));
+  gap: clamp(var(--space-2), 2cqw, var(--space-5));
+  padding: clamp(var(--space-2), 2cqw, var(--space-5));
+}
+
+.steam-lib__item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-2);
+  box-sizing: border-box;
+  min-width: 0;
+  padding: clamp(var(--space-1), 1.5cqw, var(--space-3));
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  background: var(--color-bg-elevated);
+  color: var(--color-text);
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  transition: transform 0.15s ease, border-color 0.15s ease, background 0.15s ease;
+}
+
+.steam-lib__item:hover {
+  border-color: var(--color-accent);
+  transform: translateY(-2px);
+}
+
+.steam-lib__icon {
+  flex-shrink: 0;
+  width: clamp(40px, 10cqw, 80px);
+  height: clamp(40px, 10cqw, 80px);
+  border-radius: var(--radius-sm);
+  object-fit: cover;
+}
+
+.steam-lib__info {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  width: 100%;
+  min-width: 0;
+}
+
+.steam-lib__name {
+  display: -webkit-box;
+  max-width: 100%;
+  overflow: hidden;
+  font-size: clamp(0.7rem, 2.5cqw, var(--font-size-base));
+  line-height: var(--line-height-base);
+}
+
+.steam-lib__playtime {
+  color: var(--color-text-muted);
+  font-size: clamp(0.65rem, 2cqw, var(--font-size-sm));
+  line-height: 1.2;
+}
+
+@container (max-width: 320px) {
+  .steam-lib__list {
+    grid-template-columns: 1fr;
+    gap: 0;
+    padding: var(--space-2);
+  }
+
+  .steam-lib__item {
+    flex-direction: row;
+    gap: var(--space-3);
+    padding: var(--space-2);
+    border: none;
+    background: transparent;
+    text-align: left;
+  }
+
+  .steam-lib__item:hover {
+    background: var(--color-hover-secondary);
+    transform: none;
+  }
+
+  .steam-lib__icon {
+    width: 32px;
+    height: 32px;
+  }
+
+  .steam-lib__info {
+    flex: 1;
+  }
+
+  .steam-lib__name {
+    color: var(--color-primary);
+    font-size: var(--font-size-sm);
+  }
+
+  .steam-lib__playtime {
+    color: var(--color-widget-text-muted);
+    font-size: 0.75rem;
+  }
+}
+
+.steam-activity__list {
+  margin: 0;
+  padding: var(--space-2);
+  list-style: none;
+}
+
+.steam-activity__list > li {
+  min-width: 0;
+}
+
+.steam-activity__item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  box-sizing: border-box;
+  min-width: 0;
+  padding: var(--space-2);
+  border-radius: var(--radius-sm);
+  color: var(--color-primary);
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.steam-activity__item:hover {
+  background: var(--color-hover-secondary);
+}
+
+.steam-activity__icon {
+  flex-shrink: 0;
+  width: 64px;
+  height: 24px;
+  border-radius: var(--radius-sm);
+  object-fit: cover;
+}
+
+.steam-activity__icon--placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  border: 1px solid var(--color-border);
+  background: var(--color-bg--widget);
+  color: var(--color-widget-text-muted);
+  font-size: var(--font-size-sm);
+  font-weight: 700;
+}
+
+.steam-activity__info {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: var(--space-1);
+  min-width: 0;
+}
+
+.steam-activity__name {
+  max-width: 100%;
+  overflow: hidden;
+  font-size: var(--font-size-sm);
+  line-height: var(--line-height-base);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.steam-activity__playtime {
+  color: var(--color-widget-text-muted);
+  font-size: 0.75rem;
+  line-height: 1.2;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .steam-lib__item {
+    transition: none;
+  }
+}

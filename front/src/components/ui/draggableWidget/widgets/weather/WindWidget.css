@@ -1,0 +1,157 @@
+.wind-widget,
+.wind-widget-state {
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  box-sizing: border-box;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  gap: var(--space-2);
+  padding: var(--space-3);
+
+  text-align: center;
+  overflow: hidden;
+
+  background: var(--color-bg--widget);
+  color: var(--color-primary);
+
+  border: 1px solid var(--color-border);
+
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.wind-widget {
+  container-type: inline-size;
+}
+
+.wind-main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: var(--space-3);
+}
+
+.wind-arrow {
+  font-size: clamp(1.5rem, 16cqw, 3rem);
+  line-height: 1;
+
+  color: var(--color-accent);
+
+  transition: transform 0.4s ease;
+}
+
+.wind-speed-block {
+  display: flex;
+  align-items: baseline;
+
+  gap: var(--space-1);
+}
+
+.wind-value {
+  font-size: clamp(1.5rem, 20cqw, 3.5rem);
+  font-weight: 700;
+  line-height: 1;
+
+  color: var(--color-primary);
+
+  white-space: nowrap;
+}
+
+.wind-unit {
+  font-size: clamp(0.8rem, 8cqw, 1.2rem);
+  line-height: 1;
+
+  color: var(--color-primary);
+  opacity: 0.7;
+
+  white-space: nowrap;
+}
+
+.wind-label {
+  font-size: clamp(
+    0.7rem,
+    7cqw,
+    var(--font-size-base)
+  );
+
+  line-height: var(--line-height-base);
+
+  color: var(--color-primary);
+  opacity: 0.75;
+
+  white-space: nowrap;
+}
+
+.wind-gust {
+  font-size: clamp(
+    0.65rem,
+    6cqw,
+    0.85rem
+  );
+
+  line-height: var(--line-height-base);
+
+  color: var(--color-primary);
+  opacity: 0.65;
+
+  text-align: center;
+}
+
+.wind-widget-state {
+  font-size: var(--font-size-sm);
+  line-height: var(--line-height-base);
+
+  color: var(--color-primary);
+}
+
+.wind-widget-state.error {
+  color: var(--color-error);
+  opacity: 1;
+}
+
+@container (max-width: 180px) {
+  .wind-widget,
+  .wind-widget-state {
+    gap: var(--space-1);
+    padding: var(--space-2);
+  }
+
+  .wind-main {
+    gap: var(--space-2);
+  }
+
+  .wind-arrow {
+    font-size: clamp(1.25rem, 14cqw, 2rem);
+  }
+
+  .wind-speed-block {
+    gap: 2px;
+  }
+}
+
+@container (min-width: 400px) {
+  .wind-widget {
+    gap: var(--space-3);
+    padding: var(--space-5);
+  }
+
+  .wind-main {
+    gap: var(--space-4);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .wind-widget,
+  .wind-widget-state,
+  .wind-arrow {
+    transition: none;
+  }
+}

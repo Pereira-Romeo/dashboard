@@ -1,0 +1,21 @@
+{
+  "name": "dashboard",
+  "version": "1.0.0",
+  "description": "Pretty dashboard :P",
+  "scripts": {
+    "dev": "concurrently \"npm run dev --prefix back\" \"npm run dev --prefix front\"",
+    "test": "npm run test --prefix back && npm run test --prefix front"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/EpitechPGE3-2026/G-WEB-500-REN-5-1-dashboard-1.git"
+  },
+  "bugs": {
+    "url": "https://github.com/EpitechPGE3-2026/G-WEB-500-REN-5-1-dashboard-1/issues"
+  },
+  "homepage": "https://github.com/EpitechPGE3-2026/G-WEB-500-REN-5-1-dashboard-1#readme",
+  "devDependencies": {
+    "concurrently": "^10.0.5"
+  }
+}
+

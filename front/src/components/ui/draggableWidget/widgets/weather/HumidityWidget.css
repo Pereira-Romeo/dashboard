@@ -1,0 +1,140 @@
+.weather-widget-state {
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-3);
+  text-align: center;
+  overflow: hidden;
+  background: var(--color-bg--widget);
+  color: var(--color-primary);
+  border: 1px solid var(--color-border);
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.humidity-widget {
+  container-type: inline-size;
+}
+
+.humidity-location-form {
+  width: 100%;
+  flex-shrink: 0;
+}
+
+.weather-location-input {
+  width: 100%;
+  box-sizing: border-box;
+  padding: var(--space-2) var(--space-3);
+  font: inherit;
+  font-size: var(--font-size-sm);
+  color: var(--color-text-input);
+  background: var(--color-primary);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  outline: none;
+}
+
+.weather-location-input:focus {
+  border-color: var(--color-focus-ring);
+  box-shadow: var(--focus-ring);
+}
+
+.humidity-value {
+  margin-top: auto;
+  font-size: clamp(1.5rem, 22cqw, 4rem);
+  font-weight: 700;
+  line-height: 1;
+  color: var(--color-primary);
+  white-space: nowrap;
+}
+
+.humidity-label {
+  font-size: clamp(0.7rem, 7cqw, var(--font-size-base));
+  line-height: var(--line-height-base);
+  color: var(--color-primary);
+  opacity: 0.75;
+  white-space: nowrap;
+}
+
+.humidity-bar {
+  width: min(80%, 220px);
+  height: clamp(5px, 1.5cqw, 8px);
+  background: var(--color-bg-elevated);
+  border: 1px solid var(--color-border);
+  overflow: hidden;
+  margin-bottom: auto;
+}
+
+.humidity-bar-fill {
+  width: 0;
+  height: 100%;
+
+  background: var(--color-accent);
+
+  transition: width 0.4s ease;
+}
+
+.humidity-widget-state {
+  flex: 1;
+
+  justify-content: center;
+
+  font-size: var(--font-size-sm);
+  line-height: var(--line-height-base);
+
+  color: var(--color-primary);
+}
+
+.humidity-widget-state.error {
+  color: var(--color-error);
+}
+
+@container (max-width: 180px) {
+  .humidity-widget {
+    gap: var(--space-1);
+    padding: var(--space-2);
+  }
+
+  .humidity-location-input {
+    padding: var(--space-1) var(--space-2);
+    font-size: 0.7rem;
+  }
+
+  .humidity-label {
+    font-size: 0.7rem;
+  }
+
+  .humidity-bar {
+    width: 75%;
+  }
+}
+
+@container (min-width: 400px) {
+  .humidity-widget {
+    gap: var(--space-3);
+    padding: var(--space-5);
+  }
+
+  .humidity-location-input {
+    font-size: var(--font-size-base);
+  }
+
+  .humidity-bar {
+    height: 8px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .humidity-widget,
+  .humidity-widget-state,
+  .humidity-bar-fill {
+    transition: none;
+  }
+}

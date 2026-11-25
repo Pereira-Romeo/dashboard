@@ -1,0 +1,269 @@
+.steam-lib {
+  container-type: inline-size;
+
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+
+  display: flex;
+  flex-direction: column;
+
+  box-sizing: border-box;
+
+  background: var(--color-bg--widget);
+  color: var(--color-primary);
+
+  overflow-y: auto;
+  overflow-x: hidden;
+
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-accent) transparent;
+}
+
+.steam-lib::-webkit-scrollbar {
+  width: 8px;
+}
+
+.steam-lib::-webkit-scrollbar-thumb {
+  background: var(--color-accent);
+  border-radius: var(--radius-sm);
+}
+
+.steam-lib::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.steam-lib__toolbar {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-2);
+
+  padding: var(--space-2);
+
+  background: var(--color-bg--widget);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.steam-lib__sort {
+  flex: 1 1 110px;
+  box-sizing: border-box;
+  min-width: 0;
+  padding: var(--space-1) var(--space-2);
+
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+
+  background: var(--color-secondary);
+  color: var(--color-primary);
+
+  font-size: var(--font-size-sm);
+  cursor: pointer;
+}
+
+.steam-lib__sort:hover {
+  background: var(--color-hover-secondary);
+}
+
+.steam-lib__list {
+  display: grid;
+
+  grid-template-columns:
+    repeat(
+      auto-fill,
+      minmax(clamp(90px, 22cqw, 160px), 1fr)
+    );
+
+  gap: clamp(var(--space-2), 2cqw, var(--space-5));
+
+  padding: clamp(
+    var(--space-2),
+    2cqw,
+    var(--space-5)
+  );
+}
+
+.steam-lib__item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  gap: var(--space-2);
+  padding: clamp(
+    var(--space-1),
+    1.5cqw,
+    var(--space-3)
+  );
+
+  min-width: 0;
+  box-sizing: border-box;
+
+  background: var(--color-bg-elevated);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+
+  color: var(--color-text);
+  text-align: center;
+  text-decoration: none;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.15s ease,
+    border-color 0.15s ease,
+    background 0.15s ease;
+}
+
+.steam-lib__item:hover {
+  transform: translateY(-2px);
+  border-color: var(--color-accent);
+}
+
+.steam-lib__icon {
+  width: clamp(40px, 10cqw, 80px);
+  height: clamp(40px, 10cqw, 80px);
+
+  flex-shrink: 0;
+
+  object-fit: cover;
+  border-radius: var(--radius-sm);
+}
+
+.steam-lib__info {
+  width: 100%;
+  min-width: 0;
+
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.steam-lib__name {
+  max-width: 100%;
+
+  color: var(--color-text);
+  font-size: clamp(
+    0.7rem,
+    2.5cqw,
+    var(--font-size-base)
+  );
+
+  line-height: var(--line-height-base);
+
+  display: -webkit-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.steam-lib__playtime {
+  color: var(--color-text-muted);
+
+  font-size: clamp(
+    0.65rem,
+    2cqw,
+    var(--font-size-sm)
+  );
+
+  line-height: 1.2;
+}
+
+.steam-lib-widget-state {
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  box-sizing: border-box;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: var(--space-2);
+  text-align: center;
+
+  background: var(--color-bg--widget);
+  color: var(--color-primary);
+  font-size: var(--font-size-sm);
+}
+
+.steam-lib-widget-state.error {
+  color: var(--color-error);
+}
+
+@container (max-width: 320px) {
+  .steam-lib__list {
+    grid-template-columns: 1fr;
+    gap: 0;
+    padding: var(--space-2);
+  }
+
+  .steam-lib__item {
+    flex-direction: row;
+    align-items: center;
+
+    text-align: left;
+
+    gap: var(--space-3);
+    padding: var(--space-2);
+
+    background: transparent;
+    border: none;
+  }
+
+  .steam-lib__item:hover {
+    transform: none;
+    background: var(--color-hover-secondary);
+  }
+
+  .steam-lib__icon {
+    width: 32px;
+    height: 32px;
+  }
+
+  .steam-lib__info {
+    flex: 1;
+  }
+
+  .steam-lib__name {
+    font-size: var(--font-size-sm);
+    color: var(--color-primary);
+  }
+
+  .steam-lib__playtime {
+    font-size: 0.75rem;
+  }
+}
+
+@container (max-width: 180px) {
+  .steam-lib__toolbar {
+    padding: var(--space-1);
+  }
+
+  .steam-lib__sort {
+    flex: 1 1 100%;
+    font-size: 0.75rem;
+  }
+
+  .steam-lib__list {
+    padding: var(--space-1);
+  }
+
+  .steam-lib__item {
+    gap: var(--space-2);
+  }
+
+  .steam-lib__icon {
+    width: 28px;
+    height: 28px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .steam-lib__item,
+  .steam-lib__sort {
+    transition: none;
+  }
+}

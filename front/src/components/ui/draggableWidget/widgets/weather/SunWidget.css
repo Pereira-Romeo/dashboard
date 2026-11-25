@@ -1,0 +1,145 @@
+.sun-widget,
+.sun-widget-state {
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  box-sizing: border-box;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  gap: var(--space-2);
+  padding: var(--space-3);
+
+  text-align: center;
+  overflow: hidden;
+
+  background: var(--color-bg--widget);
+  color: var(--color-primary);
+
+  border: 1px solid var(--color-border);
+
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.sun-widget {
+  container-type: inline-size;
+}
+
+.sun-duration {
+  font-size: clamp(1.2rem, 14cqw, 2.8rem);
+  font-weight: 700;
+  line-height: 1;
+
+  color: var(--color-primary);
+
+  white-space: nowrap;
+}
+
+.sun-label {
+  font-size: clamp(
+    0.7rem,
+    7cqw,
+    var(--font-size-base)
+  );
+
+  line-height: var(--line-height-base);
+
+  color: var(--color-primary);
+  opacity: 0.75;
+
+  white-space: nowrap;
+}
+
+.sun-bar {
+  width: min(80%, 220px);
+  height: clamp(5px, 1.5cqw, 8px);
+
+  background: var(--color-bg-elevated);
+  border: 1px solid var(--color-border);
+
+  overflow: hidden;
+}
+
+.sun-bar-fill {
+  width: 0;
+  height: 100%;
+
+  background: var(--color-accent);
+
+  transition: width 0.4s ease;
+}
+
+.sun-times {
+  width: min(80%, 220px);
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  font-size: clamp(
+    0.7rem,
+    6.5cqw,
+    0.9rem
+  );
+
+  line-height: var(--line-height-base);
+
+  font-variant-numeric: tabular-nums;
+
+  color: var(--color-primary);
+  opacity: 0.8;
+}
+
+.sun-widget-state {
+  font-size: var(--font-size-sm);
+  line-height: var(--line-height-base);
+
+  color: var(--color-primary);
+}
+
+.sun-widget-state.error {
+  color: var(--color-error);
+  opacity: 1;
+}
+
+@container (max-width: 180px) {
+  .sun-widget,
+  .sun-widget-state {
+    gap: var(--space-1);
+    padding: var(--space-2);
+  }
+
+  .sun-bar,
+  .sun-times {
+    width: 75%;
+  }
+
+  .sun-bar {
+    height: 5px;
+  }
+}
+
+@container (min-width: 400px) {
+  .sun-widget {
+    gap: var(--space-3);
+    padding: var(--space-5);
+  }
+
+  .sun-bar {
+    height: 8px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sun-widget,
+  .sun-widget-state,
+  .sun-bar-fill {
+    transition: none;
+  }
+}

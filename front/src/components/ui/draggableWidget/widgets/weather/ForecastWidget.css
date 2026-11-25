@@ -1,0 +1,133 @@
+.forecast-widget,
+.forecast-widget-state {
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  box-sizing: border-box;
+}
+
+.forecast-widget {
+  container-type: inline-size;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 8px;
+  overflow: hidden;
+}
+
+.forecast-title {
+  font-size: clamp(0.7rem, 5cqw, 0.95rem);
+  opacity: 0.75;
+}
+
+.forecast-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.forecast-day {
+  display: grid;
+  grid-template-columns: 1fr auto auto auto;
+  align-items: center;
+  gap: 8px;
+  padding: 2px 0;
+  border-bottom: 1px solid rgba(128, 128, 128, 0.2);
+  font-size: clamp(0.7rem, 4.5cqw, 0.9rem);
+}
+
+.forecast-day:last-child {
+  border-bottom: none;
+}
+
+.forecast-day-label {
+  text-transform: capitalize;
+  white-space: nowrap;
+}
+
+.forecast-icon {
+  width: 32px;
+  height: 32px;
+}
+
+.forecast-pop {
+  min-width: 2.5em;
+  text-align: right;
+  font-size: 0.8em;
+  color: #4da6ff;
+  font-variant-numeric: tabular-nums;
+}
+
+.forecast-temps {
+  display: flex;
+  gap: 6px;
+  min-width: 4em;
+  justify-content: flex-end;
+  font-variant-numeric: tabular-nums;
+}
+
+.forecast-min {
+  opacity: 0.55;
+}
+.forecast-search {
+  display: flex;
+  gap: 4px;
+  flex-shrink: 0;
+}
+
+.forecast-search-input {
+  flex: 1;
+  min-width: 0;
+  box-sizing: border-box;
+  padding: 4px 8px;
+
+  border: 1px solid rgba(128, 128, 128, 0.4);
+  border-radius: 6px;
+
+  background: transparent;
+  color: inherit;
+  font-size: 0.8rem;
+}
+
+.forecast-search-input:focus {
+  outline: none;
+  border-color: #4da6ff;
+}
+
+.forecast-search-btn {
+  flex-shrink: 0;
+  padding: 0 10px;
+
+  border: 1px solid rgba(128, 128, 128, 0.4);
+  border-radius: 6px;
+
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+}
+
+.forecast-search-btn:hover {
+  background: rgba(128, 128, 128, 0.2);
+}
+
+.forecast-widget-state {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+  text-align: center;
+  font-size: 0.85rem;
+  opacity: 0.8;
+}
+
+.forecast-widget-state.error {
+  color: var(--color-error);
+  opacity: 1;
+}
